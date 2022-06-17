@@ -1531,7 +1531,8 @@ def update_starting_gear(self):
     starting_gear.remove("Magic Meter Upgrade")
   
   if len(starting_gear) > MAXIMUM_ADDITIONAL_STARTING_ITEMS:
-    raise Exception("Tried to start with more starting items than the maximum number that was allocated")
+    
+    raise Exception("Tried to start with more starting items ({}) than the maximum number that was allocated ({})".format(len(starting_gear), MAXIMUM_ADDITIONAL_STARTING_ITEMS))
   starting_gear_array_address = self.main_custom_symbols["starting_gear"]
   for i in range(len(starting_gear)):
     item_id = self.item_name_to_id[starting_gear[i]]
